@@ -384,7 +384,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.01 }); // CHANGED: Lowered threshold to 0.01 to trigger animation earlier
 
             document.querySelectorAll('.section-to-animate').forEach(section => observer.observe(section));
         });
