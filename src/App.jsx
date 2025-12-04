@@ -10,64 +10,64 @@ const COMPANY_DETAILS = {
   email: "Mrscutlery@gmail.com"
 };
 
-const INITIAL_CATEGORIES = [
-  "All",
-  "Racks & Storage",
-  "Roasters",
-  "Trolleys & Stands",
-  "Kitchen Tools",
-  "Mashers",
-  "Cutlery",
-  "Whisks"
-];
+// const INITIAL_CATEGORIES = [
+//   "All",
+//   "Racks & Storage",
+//   "Roasters",
+//   "Trolleys & Stands",
+//   "Kitchen Tools",
+//   "Mashers",
+//   "Cutlery",
+//   "Whisks"
+// ];
 
-const INITIAL_PRODUCTS = [
-  {
-    id: 1,
-    name: "Kitchen Rack & Storage",
-    category: "Racks & Storage",
-    image: "/images/rack.jpg",
-    description: "High-quality storage solutions for kitchen organization.",
-    variants: [
-      { name: "Rack Square Pipe", price: "₹232 / KG" },
-      { name: "Rack Wire - Normal", price: "₹185 / KG" },
-      { name: "Shelf", price: "₹232 / KG" },
-    ]
-  },
-  {
-    id: 2,
-    name: "Roasters (Wood Handle)",
-    category: "Roasters",
-    image: "/images/wood-roaster.jpg",
-    description: "Premium wooden handle roasters.",
-    variants: [
-      { name: "Round Small (10\")", price: "₹35 / pcs" },
-      { name: "Square Small (10\")", price: "₹35 / pcs" },
-    ]
-  },
-  {
-    id: 3,
-    name: "Roasters (Steel Handle)",
-    category: "Roasters",
-    image: "/images/steel-handle.jpg",
-    description: "Durable steel handle roasters.",
-    variants: [
-      { name: "Round Small", price: "₹62 / pcs" },
-      { name: "Square Small", price: "₹72 / pcs" },
-    ]
-  },
-  {
-    id: 9,
-    name: "14 Gauge Premium Cutlery",
-    category: "Cutlery",
-    image: "", 
-    description: "Heavy 14 gauge stainless steel cutlery.",
-    variants: [
-      { name: "Masala Spoon", price: "₹125 / Dozen" },
-      { name: "Tea Spoon", price: "₹145 / Dozen" },
-    ]
-  }
-];
+// const INITIAL_PRODUCTS = [
+//   {
+//     id: 1,
+//     name: "Kitchen Rack & Storage",
+//     category: "Racks & Storage",
+//     image: "/images/rack.jpg",
+//     description: "High-quality storage solutions for kitchen organization.",
+//     variants: [
+//       { name: "Rack Square Pipe", price: "₹232 / KG" },
+//       { name: "Rack Wire - Normal", price: "₹185 / KG" },
+//       { name: "Shelf", price: "₹232 / KG" },
+//     ]
+//   },
+//   {
+//     id: 2,
+//     name: "Roasters (Wood Handle)",
+//     category: "Roasters",
+//     image: "/images/wood-roaster.jpg",
+//     description: "Premium wooden handle roasters.",
+//     variants: [
+//       { name: "Round Small (10\")", price: "₹35 / pcs" },
+//       { name: "Square Small (10\")", price: "₹35 / pcs" },
+//     ]
+//   },
+//   {
+//     id: 3,
+//     name: "Roasters (Steel Handle)",
+//     category: "Roasters",
+//     image: "/images/steel-handle.jpg",
+//     description: "Durable steel handle roasters.",
+//     variants: [
+//       { name: "Round Small", price: "₹62 / pcs" },
+//       { name: "Square Small", price: "₹72 / pcs" },
+//     ]
+//   },
+//   {
+//     id: 9,
+//     name: "14 Gauge Premium Cutlery",
+//     category: "Cutlery",
+//     image: "", 
+//     description: "Heavy 14 gauge stainless steel cutlery.",
+//     variants: [
+//       { name: "Masala Spoon", price: "₹125 / Dozen" },
+//       { name: "Tea Spoon", price: "₹145 / Dozen" },
+//     ]
+//   }
+// ];
 
 // --- ADMIN COMPONENTS ---
 
@@ -75,11 +75,9 @@ const AdminLogin = ({ onLogin }) => {
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
 
-// password Change //
-  
   const handleLogin = (e) => {
     e.preventDefault();
-    if (pass === "admin123") {    
+    if (pass === "admin123") {
       onLogin();
     } else {
       setError(true);
@@ -118,7 +116,6 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
   const [desc, setDesc] = useState("");
   const [variants, setVariants] = useState([{ name: "", price: "" }]);
 
-  // Handle File Upload via FileReader
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -152,10 +149,9 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // --- AUTO ADD RUPEE SYMBOL LOGIC ---
+    // Auto-add Rupee symbol
     const processedVariants = variants.filter(v => v.name && v.price).map(v => {
         let priceStr = v.price.trim();
-        // If it doesn't start with ₹, add it
         if (!priceStr.startsWith('₹')) {
             priceStr = '₹' + priceStr;
         }
@@ -190,7 +186,6 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
           </div>
         </div>
 
-        {/* IMAGE UPLOAD SECTION */}
         <div className="border p-4 rounded bg-gray-50">
           <label className="block text-sm font-bold text-gray-700 mb-2">Product Image</label>
           <div className="flex items-center gap-4">
@@ -200,8 +195,6 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
             </label>
             <span className="text-xs text-gray-500">Max 2MB</span>
           </div>
-          
-          {/* Image Preview */}
           {image && (
             <div className="mt-3">
               <p className="text-xs text-green-600 font-bold mb-1">Image Loaded:</p>
@@ -220,7 +213,7 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
           {variants.map((variant, index) => (
             <div key={index} className="flex gap-2 mb-2">
               <input 
-                placeholder="Size / Type (e.g. Small)" 
+                placeholder="Size / Type" 
                 className="flex-1 p-2 border rounded" 
                 value={variant.name} 
                 onChange={(e) => handleVariantChange(index, 'name', e.target.value)}
@@ -228,7 +221,7 @@ const ProductForm = ({ onSave, onCancel, categories }) => {
               <div className="relative w-32">
                 <span className="absolute left-2 top-2 text-gray-400">₹</span>
                 <input 
-                    placeholder="200 / pcs" 
+                    placeholder="200" 
                     className="w-full p-2 pl-6 border rounded" 
                     value={variant.price} 
                     onChange={(e) => handleVariantChange(index, 'price', e.target.value)}
@@ -303,7 +296,6 @@ const CategoryManager = ({ categories, setCategories }) => {
 const AdminDashboard = ({ products, setProducts, categories, setCategories, onLogout }) => {
   const [showForm, setShowForm] = useState(false);
 
-  // Load Categories & Products on mount
   useEffect(() => {
     const savedProducts = localStorage.getItem('mrs_products');
     const savedCategories = localStorage.getItem('mrs_categories');
@@ -312,7 +304,6 @@ const AdminDashboard = ({ products, setProducts, categories, setCategories, onLo
     if (savedCategories) setCategories(JSON.parse(savedCategories));
   }, []);
 
-  // Save whenever they change
   useEffect(() => {
     localStorage.setItem('mrs_products', JSON.stringify(products));
   }, [products]);
@@ -342,10 +333,8 @@ const AdminDashboard = ({ products, setProducts, categories, setCategories, onLo
           </button>
         </div>
 
-        {/* --- Category Management --- */}
         <CategoryManager categories={categories} setCategories={setCategories} />
 
-        {/* --- Product Management --- */}
         <div className="mb-6 flex justify-between items-end">
             <h3 className="text-xl font-bold">Product List ({products.length})</h3>
             {!showForm && (
@@ -488,7 +477,6 @@ const WebsiteView = ({ products, categories, onAdminClick }) => {
             <div className="h-1 w-20 bg-red-600 mt-4"></div>
           </div>
 
-          {/* DYNAMIC CATEGORY BUTTONS */}
           <div className="flex flex-wrap gap-2 mb-10 border-b border-gray-200 pb-4">
             {categories.map((cat) => (
               <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-4 py-2 text-sm font-semibold rounded-t-lg transition-colors border-b-2 ${activeCategory === cat ? 'border-red-600 text-red-700 bg-red-50' : 'border-transparent text-gray-500 hover:text-black hover:bg-gray-50'}`}>{cat}</button>
@@ -514,11 +502,17 @@ const WebsiteView = ({ products, categories, onAdminClick }) => {
                         <div className="border border-gray-200 rounded-md overflow-hidden mb-4">
                           <table className="w-full text-sm text-left">
                               <thead className="bg-gray-100 text-gray-700 font-bold border-b border-gray-200">
-                              <tr><th className="px-3 py-2 w-2/3">Size / Type</th><th className="px-3 py-2 w-1/3 text-right">Rate</th></tr>
+                              <tr>
+                                  <th className="px-3 py-2">Size / Type</th>
+                                  <th className="px-3 py-2 text-right whitespace-nowrap w-24">Rate</th>
+                              </tr>
                               </thead>
                               <tbody className="divide-y divide-gray-100">
                               {product.variants.map((v, idx) => (
-                                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}><td className="px-3 py-2 text-gray-700 align-top">{v.name}</td><td className="px-3 py-2 text-right font-bold text-black align-top">{v.price}</td></tr>
+                                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                      <td className="px-3 py-2 text-gray-700 align-top">{v.name}</td>
+                                      <td className="px-3 py-2 text-right font-bold text-black align-top whitespace-nowrap">{v.price}</td>
+                                  </tr>
                               ))}
                               </tbody>
                           </table>
@@ -554,7 +548,6 @@ const WebsiteView = ({ products, categories, onAdminClick }) => {
           </div>
           <div className="border-t border-gray-900 mt-16 pt-8 text-center text-gray-600 text-sm flex justify-between items-center flex-col md:flex-row">
             <span>© {new Date().getFullYear()} Jain Enterprises. All rights reserved.</span>
-            {/* HIDDEN ADMIN LINK */}
             <button onClick={onAdminClick} className="text-gray-800 hover:text-gray-600 text-xs mt-4 md:mt-0">Admin Login</button>
           </div>
         </div>
@@ -570,7 +563,6 @@ export default function App() {
   const [products, setProducts] = useState(INITIAL_PRODUCTS);
   const [categories, setCategories] = useState(INITIAL_CATEGORIES);
 
-  // Sync state with local storage on load
   useEffect(() => {
     const savedProds = localStorage.getItem('mrs_products');
     const savedCats = localStorage.getItem('mrs_categories');
