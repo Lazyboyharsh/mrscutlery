@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRS Cutlery — Stainless Steel Cutlery &amp; Kitchenware Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel-100:#eef0f2;
+    --steel-200:#d7dbe0;
+    --steel-400:#9aa3ac;
+    --graphite-900:#181a1d;
+    --graphite-800:#232629;
+    --graphite-700:#2f3336;
+    --copper-500:#c17a4e;
+    --copper-400:#d99566;
+    --copper-glow: rgba(193,122,78,0.35);
+    --paper:#f6f4f0;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#1ea952;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--graphite-900);
+    font-family:'Work Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--graphite-900);
+    border-bottom:1px solid var(--graphite-700);
+  }
+  .headbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:9px;
+    background:linear-gradient(145deg,var(--steel-200),var(--steel-400) 55%, #6d757c);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Oswald';font-weight:700;color:var(--graphite-900);font-size:15px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 2px 6px rgba(0,0,0,.4);
+  }
+  .brand-name{color:var(--steel-100);font-size:19px;font-weight:600;letter-spacing:.06em;}
+  .brand-name span{color:var(--copper-400);}
+  nav.top-links{display:flex;gap:28px;}
+  nav.top-links a{
+    color:var(--steel-200);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    font-family:'Oswald';font-weight:500;
+    padding-bottom:3px;border-bottom:2px solid transparent;
+    transition:.2s;
+  }
+  nav.top-links a:hover{color:var(--copper-400);border-color:var(--copper-400);}
+  .call-pill{
+    display:flex;align-items:center;gap:8px;
+    background:var(--graphite-800); border:1px solid var(--graphite-700);
+    color:var(--steel-100); padding:8px 14px;border-radius:30px;font-size:13px;
+    white-space:nowrap;
+  }
+  .menu-btn{display:none;background:none;border:none;color:var(--steel-100);font-size:26px;cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:var(--graphite-900);
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 0.9fr;
+    align-items:center; gap:20px;
+    padding:64px 24px 56px;
+  }
+  .hero-eyebrow{
+    color:var(--copper-400); font-family:'Oswald'; letter-spacing:.22em;
+    font-size:13px; font-weight:500; margin-bottom:14px;display:block;
+  }
+  .hero h1{
+    color:var(--steel-100); font-size:clamp(34px,5vw,58px); line-height:1.04;
+    font-weight:700;
+  }
+  .hero h1 em{color:var(--copper-400);font-style:normal;}
+  .hero p.lede{
+    color:var(--steel-200); font-size:17px; line-height:1.6; margin-top:20px;
+    max-width:480px; font-weight:400;
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 24px;border-radius:9px;font-family:'Oswald';
+    font-size:14px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+    cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-copper{background:linear-gradient(135deg,var(--copper-400),var(--copper-500));color:#1c1002;box-shadow:0 8px 20px var(--copper-glow);}
+  .btn-outline{background:transparent;border:1.5px solid var(--steel-400);color:var(--steel-100);}
+  .btn-wa{background:var(--whatsapp);color:#fff;box-shadow:0 6px 16px rgba(37,211,102,.35);}
+  .btn-wa:hover{background:var(--whatsapp-dark);}
+  .btn-wa svg{width:16px;height:16px;fill:#fff;}
+  .btn-block{width:100%;justify-content:center;margin-top:14px;}
+
+  .hero-visual{
+    position:relative; border-radius:18px; overflow:hidden;
+    border:1px solid var(--graphite-700);
+    box-shadow:0 30px 60px rgba(0,0,0,.45);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-visual::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(24,26,29,0) 40%, rgba(24,26,29,.55) 100%);
+  }
+  .hero-stats{
+    position:absolute; left:0; right:0; bottom:0; z-index:2;
+    display:flex; justify-content:space-between; padding:16px 20px;
+    font-family:'Oswald'; color:#fff;
+  }
+  .hero-stats div b{display:block;font-size:20px;color:var(--copper-400);}
+  .hero-stats div{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;}
+
+  .steel-strip{
+    height:6px;width:100%;
+    background:repeating-linear-gradient(90deg, var(--steel-200) 0 2px, var(--steel-400) 2px 4px);
+    opacity:.5;
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:34px;max-width:640px;}
+  .section-head .eyebrow{
+    font-family:'Oswald';color:var(--copper-500);letter-spacing:.2em;font-size:12px;font-weight:600;
+  }
+  .section-head h2{font-size:clamp(26px,3.4vw,38px);margin-top:8px;color:var(--graphite-900);}
+  .section-head p{color:#5b6167;margin-top:12px;font-size:15.5px;line-height:1.6;}
+
+  /* ---------- category nav ---------- */
+  .cat-nav{
+    position:sticky; top:66px; z-index:40;
+    background:var(--paper);
+    border-bottom:1px solid var(--steel-200);
+    padding:14px 0;
+  }
+  .cat-nav-scroll{
+    display:flex;gap:10px;overflow-x:auto;max-width:var(--maxw);margin:0 auto;padding:0 24px;
+    scrollbar-width:none;
+  }
+  .cat-nav-scroll::-webkit-scrollbar{display:none;}
+  .cat-chip{
+    flex:none;padding:9px 18px;border-radius:30px;border:1.5px solid var(--steel-200);
+    font-family:'Oswald';font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--graphite-800);background:#fff;font-weight:500;cursor:pointer;transition:.2s;
+  }
+  .cat-chip:hover{border-color:var(--copper-500);color:var(--copper-500);}
+  .cat-chip.active{background:var(--graphite-900);border-color:var(--graphite-900);color:#fff;}
+
+  /* ---------- product grid ---------- */
+  .cat-block{padding-top:52px;scroll-margin-top:150px;}
+  .cat-block-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px;border-bottom:2px solid var(--graphite-900);padding-bottom:14px;}
+  .cat-block-head h3{font-size:24px;color:var(--graphite-900);}
+  .cat-block-head .count{font-family:'Oswald';color:var(--steel-400);font-size:13px;letter-spacing:.08em;}
+  .cat-desc{color:#5b6167;font-size:14.5px;max-width:680px;margin:-14px 0 26px;line-height:1.6;}
+
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;
+  }
+  .card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    border:1px solid #e7e4de;
+    display:flex;flex-direction:column;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(24,26,29,.1);}
+  .card-img{
+    aspect-ratio:4/3;width:100%;overflow:hidden;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid #eee;
+  }
+  .card-img img{width:100%;height:100%;object-fit:contain;}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .card-title{font-family:'Oswald';font-size:17px;font-weight:600;letter-spacing:.01em;color:var(--graphite-900);}
+  .card-meta{font-size:13px;color:#6b7177;line-height:1.55;flex:1;}
+  .card-meta b{color:var(--graphite-800);}
+  .card-price{
+    font-family:'Oswald';font-size:13px;color:var(--copper-500);letter-spacing:.03em;font-weight:600;
+    padding-top:2px;
+  }
+  .card-wa{
+    margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--whatsapp);color:#fff;padding:11px 14px;border-radius:9px;
+    font-family:'Oswald';font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;
+    transition:background .15s ease;
+  }
+  .card-wa:hover{background:var(--whatsapp-dark);}
+  .card-wa svg{width:15px;height:15px;fill:#fff;flex:none;}
+
+  /* ---------- about / trust ---------- */
+  .about{background:var(--graphite-900);color:var(--steel-100);}
+  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:50px;align-items:center;}
+  .about-img{border-radius:16px;overflow:hidden;border:1px solid var(--graphite-700);}
+  .about-img img{width:100%;object-fit:cover;}
+  .about h2{color:#fff;}
+  .about p{color:var(--steel-200);line-height:1.7;font-size:15.5px;margin-top:16px;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
+  .about-stat{border-left:2px solid var(--copper-500);padding-left:14px;}
+  .about-stat b{display:block;font-family:'Oswald';font-size:26px;color:var(--copper-400);}
+  .about-stat span{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel-400);}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:linear-gradient(120deg,var(--copper-500),var(--copper-400));
+    color:#1c1002;
+  }
+  .cta-band .wrap{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    padding:44px 24px;
+  }
+  .cta-band h3{font-size:26px;}
+  .cta-band p{margin-top:8px;font-size:14.5px;opacity:.85;}
+  .cta-band .btn-wa{background:#1c1002;color:#fff;box-shadow:none;}
+  .cta-band .btn-wa:hover{background:#000;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--graphite-900);color:var(--steel-400);padding:44px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;}
+  footer h4{color:var(--steel-100);font-size:14px;margin-bottom:14px;letter-spacing:.06em;}
+  footer p, footer a{font-size:13.5px;line-height:1.9;color:var(--steel-400);}
+  footer a:hover{color:var(--copper-400);}
+  .foot-bottom{
+    margin-top:34px;padding-top:20px;border-top:1px solid var(--graphite-700);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--steel-400);
+  }
+
+  /* floating whatsapp */
+  .float-wa{
+    position:fixed;right:20px;bottom:20px;z-index:60;
+    background:var(--whatsapp);width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(37,211,102,.5);
+    animation:pulse 2.4s infinite;
+  }
+  .float-wa svg{width:28px;height:28px;fill:#fff;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55);}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .about .wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    nav.top-links{display:none;}
+  }
+  @media (max-width:640px){
+    .call-pill span.txt{display:none;}
+    .foot-grid{grid-template-columns:1fr;}
+    .cat-block{scroll-margin-top:118px;}
+    .cat-nav{top:60px;}
+  }
+  .brand-mark{
+  height:42px;width:auto;
+  object-fit:contain;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headbar">
+  <div class="brand">
+    <img src="images/logo.jpg" alt="MRS Cutlery" class="brand-mark">
+  </div>
+    <nav class="top-links">
+      <a href="#cutlery-sets">Cutlery Sets</a>
+      <a href="#flatware">Flatware</a>
+      <a href="#kitchen-tools">Kitchen Tools</a>
+      <a href="#bar">Bar</a>
+      <a href="#accessories">Accessories</a>
+      <a href="#racks">Racks &amp; Stands</a>
+    </nav>
+    <a class="call-pill" href="tel:+919278172423">
+      📞 <span class="txt">9278172423</span>
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">Wholesale Stainless Steel Kitchenware</span>
+      <h1>Cutlery &amp; kitchenware, <em>built to last.</em></h1>
+      <p class="lede">MRS Cutlery is a browsing catalog of our stainless steel cutlery sets, flatware, kitchen tools, bar accessories and kitchen racks. This is a look‑book, not a checkout — tap any item to enquire on WhatsApp and we'll take it from there.</p>
+      <div class="hero-cta">
+        <a href="#cutlery-sets" class="btn btn-copper">Browse the Catalog</a>
+        <a href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%20MRS%20Cutlery%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.24 0 4.35.87 5.94 2.46a8.23 8.23 0 0 1 2.42 5.85c0 4.55-3.71 8.26-8.27 8.26a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.4c0-4.56 3.71-8.31 8.17-8.31M8.53 6.99c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.72 4.2 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.46-.28-.24-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.39-.78-1.9-.2-.5-.41-.43-.56-.43z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="images/hero_banner.jpg" alt="MRS Cutlery kitchen accessories">
+      <div class="hero-stats">
+        <div><b>100+</b>SKUs Catalogued</div>
+        <div><b>6</b>Product Ranges</div>
+        <div><b>View Only</b>Enquire on WhatsApp</div>
+      </div>
+    </div>
+  </div>
+  <div class="steel-strip"></div>
+</div>
+
+<nav class="cat-nav">
+  <div class="cat-nav-scroll" id="catNav">
+    <a href="#cutlery-sets" class="cat-chip">Cutlery Sets</a>
+    <a href="#flatware" class="cat-chip">Loose Flatware</a>
+    <a href="#kitchen-tools" class="cat-chip">Kitchen Tools</a>
+    <a href="#bar" class="cat-chip">Bar &amp; Cocktail</a>
+    <a href="#accessories" class="cat-chip">Kitchen Accessories</a>
+    <a href="#racks" class="cat-chip">Racks &amp; Stands</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===================== CUTLERY SETS ===================== -->
+  <section class="cat-block" id="cutlery-sets">
+    <div class="cat-block-head">
+      <h3>Cutlery Sets</h3>
+      <span class="count">24‑piece sets with display stand</span>
+    </div>
+    <p class="cat-desc">Boxed 24‑piece cutlery sets — tea spoon, baby spoon, dessert spoon and dessert fork — each presented on its own wire display stand. Thickness and MRP noted per set.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/ivory_set.jpg" alt="Ivory cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Ivory</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Spoon · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS127 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹3449 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Ivory%20Cutlery%20Set%20(CS127)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/aura_set.jpg" alt="Aura cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Aura</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Spoon · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS115 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1399 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Aura%20Cutlery%20Set%20(CS115)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/artic_set.jpg" alt="Artic cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Artic</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Spoon · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS116 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1399 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Artic%20Cutlery%20Set%20(CS116)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/miracle_set.jpg" alt="Miracle cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Miracle</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Soup · 6 Baby Spoon · 6 Baby Fork<br><b>Code:</b> CS111 &nbsp;|&nbsp; <b>Thickness:</b> 1.2mm</div>
+          <div class="card-price">MRP ₹1029 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Miracle%20Cutlery%20Set%20(CS111)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/decora_set.jpg" alt="Decora cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Decora</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Spoon · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS108 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1339 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Decora%20Cutlery%20Set%20(CS108)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/fantasy_knife_set.jpg" alt="Fantasy Knife cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Fantasy Knife</div>
+          <div class="card-meta">6 Tea Spoon · 6 Knife · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS109 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1419 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Fantasy%20Knife%20Cutlery%20Set%20(CS109)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/fantasy_soup_set.jpg" alt="Fantasy Soup cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Fantasy Soup</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Soup · 6 Dessert Spoon · 6 Dessert Fork<br><b>Code:</b> CS110 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1419 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Fantasy%20Soup%20Cutlery%20Set%20(CS110)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/beauty_set.jpg" alt="Beauty cutlery set"></div>
+        <div class="card-body">
+          <div class="card-title">Beauty</div>
+          <div class="card-meta">6 Tea Spoon · 6 Baby Spoon · 6 Dessert Spoon · 6 Dessert Fork — rotating stand<br><b>Code:</b> CS107 &nbsp;|&nbsp; <b>Thickness:</b> 1.6mm</div>
+          <div class="card-price">MRP ₹1295 / set</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Beauty%20Cutlery%20Set%20(CS107)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== LOOSE FLATWARE ===================== -->
+  <section class="cat-block" id="flatware">
+    <div class="cat-block-head">
+      <h3>Loose Flatware &amp; Gauge Cutlery</h3>
+      <span class="count">Sold by tag (6 pcs) or dozen</span>
+    </div>
+    <p class="cat-desc">Our core flatware ranges across 14, 17 and 18 gauge thickness, in plain steel, laser‑etched and PVD gold/rose‑gold finishes. Full item‑code and pricing charts below — every range is available in tea spoon, fork, baby, dessert and service sizes.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/gauge_cutlery_chart.jpg" alt="17 and 18 Gauge Cutlery price chart"></div>
+        <div class="card-body">
+          <div class="card-title">17 Gauge &amp; 18 Gauge Cutlery</div>
+          <div class="card-meta">Designs: Sigma, Impress, Classic, Onida Line, Dilare, Unique, Super King, Juhi, Delux, Moti · Plain &amp; laser finishes<br><b>Codes:</b> CT‑101 to CT‑129, CM‑101 to CM‑149</div>
+          <div class="card-price">Tag from ₹149 · Dozen from ₹249</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%2017%2F18%20Gauge%20Cutlery%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/cutlery_14gauge_chart.jpg" alt="14 Gauge Cutlery price chart"></div>
+        <div class="card-body">
+          <div class="card-title">14 Gauge Cutlery — Impress</div>
+          <div class="card-meta">Coffee spoon to service spoon, plus 14‑gauge baby spoons in Smile Flower, Wave, Chain &amp; Bubble designs<br><b>Codes:</b> CT‑141 to CT‑364, CM‑161 to CM‑354</div>
+          <div class="card-price">Tag from ₹175 · Dozen from ₹400</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%2014%20Gauge%20Impress%20Cutlery%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/cutlery_designs_chart.jpg" alt="Tidy Zig-Zag Eurogem Glory and laser cutlery chart"></div>
+        <div class="card-body">
+          <div class="card-title">14 Gauge — Tidy / Zig‑Zag / Eurogem / Glory &amp; Laser (Chess, Arrow)</div>
+          <div class="card-meta">Full pattern range in tag and dozen packaging, tea spoon through dessert knife<br><b>Codes:</b> CT‑171 to CT‑355, CM‑191 to CM‑395</div>
+          <div class="card-price">Tag from ₹229 · Dozen from ₹415</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Tidy%2FZig-Zag%2FEurogem%2FGlory%20Cutlery%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/impress_cutlery_chart.jpg" alt="PVD Gold and Rose Gold cutlery chart"></div>
+        <div class="card-body">
+          <div class="card-title">Impress Cutlery — PVD Gold &amp; Rose Gold</div>
+          <div class="card-meta">Coffee spoon to dessert soup spoon in mirror‑finish PVD gold or rose gold<br><b>Codes:</b> CT‑201 to CT‑320, CM‑221 to CM‑251</div>
+          <div class="card-price">Tag from ₹325 · Dozen from ₹1049</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Impress%20PVD%20Gold%2FRose%20Gold%20Cutlery&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/ivory_gold_cutlery_chart.jpg" alt="Ivory Gold Cutlery chart"></div>
+        <div class="card-body">
+          <div class="card-title">Ivory Gold Cutlery</div>
+          <div class="card-meta">Two‑tone steel and gold handle — tea spoon, baby spoon/fork, dessert spoon/fork, 24 pcs set<br><b>Codes:</b> CT‑301 to CT‑305, CM‑341 to CM‑345</div>
+          <div class="card-price">Tag from ₹625 · Dozen from ₹1149</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Ivory%20Gold%20Cutlery&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/commercial_whisk_chart.jpg" alt="Loose flatware alternate placeholder"></div>
+        <div class="card-body">
+          <div class="card-title">14 Gauge Cutlery — Jain Series</div>
+          <div class="card-meta">Masala spoon, coffee spoon/fork, tea &amp; ice‑cream spoon, baby set, dessert set, dessert knife (2.5mm), service spoon — Regular &amp; Leaser series</div>
+          <div class="card-price">Dozen ₹125 – ₹410</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%2014%20Gauge%20Jain%20Series%20Cutlery&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== KITCHEN TOOLS ===================== -->
+  <section class="cat-block" id="kitchen-tools">
+    <div class="cat-block-head">
+      <h3>Kitchen Tools</h3>
+      <span class="count">Ladles, turners, whisks &amp; sets</span>
+    </div>
+    <p class="cat-desc">American‑style long‑handle kitchen tools, mirror‑polish and plastic‑support ladle sets, whisks from mini to commercial size, and mashers in round and square heads.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/kitchen_tools_14in.jpg" alt="14 inch American Kitchen Tools"></div>
+        <div class="card-body">
+          <div class="card-title">14" American Kitchen Tools</div>
+          <div class="card-meta">Ladle, Pan, Turner, Skimmer, Slotted Turner — also available in 16" &amp; 21"<br><b>Codes:</b> KT‑121 to KT‑125</div>
+          <div class="card-price">MRP ₹135 each</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%2014%22%20American%20Kitchen%20Tools&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/kitchen_tools_9in.jpg" alt="9 inch American Kitchen Tools"></div>
+        <div class="card-body">
+          <div class="card-title">9" American Kitchen Tools</div>
+          <div class="card-meta">Ladle, Slotted Turner, Turner, Skimmer, Skimmer Plain<br><b>Codes:</b> KT‑201 to KT‑205</div>
+          <div class="card-price">MRP ₹99 each</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%209%22%20American%20Kitchen%20Tools&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/kitchen_tools_sets.jpg" alt="American kitchen tool sets"></div>
+        <div class="card-body">
+          <div class="card-title">American Tool Sets (5pc &amp; 6pc)</div>
+          <div class="card-meta">5 pcs: Ladle, Pan, Skimmer, Turner, Slotted Turner (KT‑112) · 6 pcs adds an SS stand (KT‑102)</div>
+          <div class="card-price">MRP ₹699 / ₹1079</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20American%20Kitchen%20Tool%20Sets&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/whisk_banner.jpg" alt="Stainless steel whisk"></div>
+        <div class="card-body">
+          <div class="card-title">Whisk (22cm / 25cm / 30cm)</div>
+          <div class="card-meta">Steel balloon whisk, 3 sizes<br><b>Codes:</b> KA‑101, KA‑102, KA‑103</div>
+          <div class="card-price">MRP ₹75 – ₹109</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Whisk%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/commercial_whisk_chart.jpg" alt="Commercial whisk sizes"></div>
+        <div class="card-body">
+          <div class="card-title">Commercial Whisk (25–50cm)</div>
+          <div class="card-meta">2mm wire, 1‑inch pipe diameter, 6 sizes 25cm to 50cm<br><b>Codes:</b> KA‑141 to KA‑146</div>
+          <div class="card-price">MRP ₹149 – ₹339</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Commercial%20Whisk%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/strainers_lids_group.jpg" alt="Kitchen strainers and lids"></div>
+        <div class="card-body">
+          <div class="card-title">Strainers, Tongs &amp; Splatter Lids</div>
+          <div class="card-meta">Fine‑mesh tea strainer, kitchen tongs, splatter‑screen lids and a serving ring, from our working stock</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Strainers%2C%20Tongs%20%26%20Splatter%20Lids&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== BAR & COCKTAIL ===================== -->
+  <section class="cat-block" id="bar">
+    <div class="cat-block-head">
+      <h3>Bar &amp; Cocktail</h3>
+      <span class="count">Home bar essentials</span>
+    </div>
+    <p class="cat-desc">A compact cocktail set for the home bar cart — shaker, jigger, tongs, mixing spoon and strainer in one boxed unit.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/cocktail_set.jpg" alt="6 piece cocktail set"></div>
+        <div class="card-body">
+          <div class="card-title">Cocktail Set (6 pcs)</div>
+          <div class="card-meta">Shaker, jigger, ice tongs, bar spoon, strainer<br><b>Code:</b> KA‑151</div>
+          <div class="card-price">MRP ₹1199</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Cocktail%20Set%20(KA-151)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== KITCHEN ACCESSORIES ===================== -->
+  <section class="cat-block" id="accessories">
+    <div class="cat-block-head">
+      <h3>Kitchen Accessories</h3>
+      <span class="count">Everyday steel essentials</span>
+    </div>
+    <p class="cat-desc">Napkin holders, chopping boards, colanders, measuring sets and the small steel tools that round out a kitchen — sized and priced per unit below.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/napkin_holder_stand.jpg" alt="D Napkin Holder with stand"></div>
+        <div class="card-body">
+          <div class="card-title">D Napkin Holder — With Stand</div>
+          <div class="card-meta"><b>Code:</b> NH‑104 · Packaging: 150</div>
+          <div class="card-price">MRP ₹125</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20D%20Napkin%20Holder%20With%20Stand%20(NH-104)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/napkin_holder_nostand.jpg" alt="D Napkin Holder without stand"></div>
+        <div class="card-body">
+          <div class="card-title">D Napkin Holder — Without Stand</div>
+          <div class="card-meta"><b>Code:</b> NH‑103 · Packaging: 150</div>
+          <div class="card-price">MRP ₹89</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20D%20Napkin%20Holder%20Without%20Stand%20(NH-103)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/bubble_napkin_holder.jpg" alt="Bubble napkin holder"></div>
+        <div class="card-body">
+          <div class="card-title">Bubble Napkin Holder</div>
+          <div class="card-meta"><b>Code:</b> NH‑102 · Packaging: 150</div>
+          <div class="card-price">MRP ₹185</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Bubble%20Napkin%20Holder%20(NH-102)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/triangle_napkin_holder.jpg" alt="Triangle napkin holder"></div>
+        <div class="card-body">
+          <div class="card-title">Triangle Napkin Holder</div>
+          <div class="card-meta">Square, Round or Line pattern · <b>Code:</b> NH‑101 · Packaging: 150</div>
+          <div class="card-price">MRP ₹185</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Triangle%20Napkin%20Holder%20(NH-101)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/coaster_set.jpg" alt="Coaster set of 6"></div>
+        <div class="card-body">
+          <div class="card-title">Coaster Set (6 pcs)</div>
+          <div class="card-meta">Square (NH‑105) or Round (NH‑106) · Packaging: 200</div>
+          <div class="card-price">MRP ₹399</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Coaster%20Set%20(NH-105%2FNH-106)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/cutlery_holder.jpg" alt="Cutlery holder cylinder"></div>
+        <div class="card-body">
+          <div class="card-title">Cutlery Holder</div>
+          <div class="card-meta"><b>Code:</b> WI‑181 · Packaging: 150</div>
+          <div class="card-price">MRP ₹125</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Cutlery%20Holder%20(WI-181)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/measuring_spoons_cups.jpg" alt="Measuring spoons and cups"></div>
+        <div class="card-body">
+          <div class="card-title">Measuring Spoons &amp; Cups</div>
+          <div class="card-meta">Measuring spoon set, cups with patti handle, and cups with wire handle</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Measuring%20Spoons%20%26%20Cups&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/chopping_board.jpg" alt="Stainless steel chopping board"></div>
+        <div class="card-body">
+          <div class="card-title">SS Chopping Board (1mm)</div>
+          <div class="card-meta">Rectangular: 31×21cm (KA‑211) &amp; 35.5×25cm (KA‑212) · L‑Shape: 35.5×31cm (KA‑216) &amp; 41×31cm (KA‑217)</div>
+          <div class="card-price">MRP ₹575 – ₹1085</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20SS%20Chopping%20Board&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/net_cover.jpg" alt="Net cover set"></div>
+        <div class="card-body">
+          <div class="card-title">Net Cover</div>
+          <div class="card-meta">Sizes No.8 to No.12 · <b>Codes:</b> KA‑221 to KA‑225 · Packaging: 36</div>
+          <div class="card-price">MRP ₹149 – ₹215</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Net%20Cover&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/colander.jpg" alt="Steel colander"></div>
+        <div class="card-body">
+          <div class="card-title">Colander</div>
+          <div class="card-meta">Sizes No.8 to No.12 · <b>Codes:</b> KA‑231 to KA‑235 · Packaging: 6</div>
+          <div class="card-price">MRP ₹489 – ₹849</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Colander&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/multipurpose_basket.jpg" alt="Multipurpose basket with cover"></div>
+        <div class="card-body">
+          <div class="card-title">Multipurpose Basket with Cover</div>
+          <div class="card-meta">Sizes No.8 to No.12 · <b>Codes:</b> KA‑251 to KA‑255</div>
+          <div class="card-price">MRP ₹1199 – ₹1939</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Multipurpose%20Basket%20with%20Cover&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== RACKS & STANDS ===================== -->
+  <section class="cat-block" id="racks">
+    <div class="cat-block-head">
+      <h3>Racks, Stands &amp; Trolleys</h3>
+      <span class="count">Storage &amp; organisation</span>
+    </div>
+    <p class="cat-desc">Wall racks, cup stands, cutlery stands, cylinder trolleys and shelving — sold by weight or by piece as noted.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="images/cup_stand_chart.jpg" alt="Cup stand designs"></div>
+        <div class="card-body">
+          <div class="card-title">Cup Stands</div>
+          <div class="card-meta">Rectangle, Moon &amp; Kettle cup stands with saucer, plus Cup Stand 1/2/3 mug trees — chrome finish<br><b>Codes:</b> WI‑140 to WI‑143</div>
+          <div class="card-price">0.4 – 0.6 KG approx weight</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Cup%20Stand%20range&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/chakla_belan_stand.jpg" alt="Chakla belan tawa stand"></div>
+        <div class="card-body">
+          <div class="card-title">Chakla‑Belan Tawa Stand</div>
+          <div class="card-meta">Holds tawa, chakla &amp; belan together · 540–600 grams approx weight</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Chakla-Belan%20Tawa%20Stand&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/cutlery_stand_square.jpg" alt="Square cutlery stand"></div>
+        <div class="card-body">
+          <div class="card-title">Cutlery Stand (Square)</div>
+          <div class="card-meta">Electro (WI‑175, 0.25kg) or Chrome (WI‑176, 0.28kg) finish</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Square%20Cutlery%20Stand&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/cutlery_stand_oval_patti.jpg" alt="Oval patti cutlery stand"></div>
+        <div class="card-body">
+          <div class="card-title">Cutlery Stand (Oval Patti)</div>
+          <div class="card-meta">Chrome finish · <b>Code:</b> WI‑177 · Approx weight 0.3 KG</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Oval%20Patti%20Cutlery%20Stand%20(WI-177)&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/curvy_oval_shelf.jpg" alt="Curvy oval shelf"></div>
+        <div class="card-body">
+          <div class="card-title">Curvy Oval Shelf</div>
+          <div class="card-meta">2 Tier (WI‑361) or 3 Tier (WI‑362) · Chrome finish</div>
+          <div class="card-price">Ask for current price</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20the%20Curvy%20Oval%20Shelf&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="images/warehouse_stock.jpg" alt="Racks and wall shelving stock"></div>
+        <div class="card-body">
+          <div class="card-title">Wall Racks, Shelves &amp; Tokra</div>
+          <div class="card-meta">Square‑pipe &amp; wire racks, shelves, tokra (square/round) and fruity baskets, sold per KG · plus cylinder trolley (regular ₹105, heavy ₹218/pc)</div>
+          <div class="card-price">From ₹185/KG</div>
+          <a class="card-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%2C%20I%27m%20interested%20in%20Wall%20Racks%2C%20Shelves%20%26%20Tokra&type=phone_number&app_absent=0">WhatsApp Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-img">
+      <img src="images/warehouse_stock.jpg" alt="MRS Cutlery stock on the warehouse floor">
+    </div>
+    <div>
+      <span class="hero-eyebrow" style="color:var(--copper-400)">Who We Are</span>
+      <h2>Stocked, ready, and easy to reach.</h2>
+      <p>MRS Cutlery trades in stainless steel cutlery, kitchen tools and kitchenware — the ranges shown in this catalog reflect what we actually keep in stock. Everything here is for browsing; when you see something you like, message us on WhatsApp with the item name and code and we'll confirm availability, packaging and rate.</p>
+      <div class="about-grid">
+        <div class="about-stat"><b>6</b><span>Product Categories</span></div>
+        <div class="about-stat"><b>100+</b><span>Catalogued Items</span></div>
+        <div class="about-stat"><b>1.2–2mm</b><span>Steel Gauge Range</span></div>
+        <div class="about-stat"><b>WhatsApp</b><span>Fastest Way to Reach Us</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div>
+      <h3>Seen something you like?</h3>
+      <p>Send us the item name and code on WhatsApp — we'll reply with stock, packaging and current rate.</p>
+    </div>
+    <a class="btn btn-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%20MRS%20Cutlery%2C%20I%27d%20like%20to%20enquire%20about%20a%20product&type=phone_number&app_absent=0">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.24 0 4.35.87 5.94 2.46a8.23 8.23 0 0 1 2.42 5.85c0 4.55-3.71 8.26-8.27 8.26a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.4c0-4.56 3.71-8.31 8.17-8.31M8.53 6.99c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.72 4.2 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.46-.28-.24-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.39-.78-1.9-.2-.5-.41-.43-.56-.43z"/></svg>
+      WhatsApp: 9278172423
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <h4>MRS Cutlery</h4>
+      <p>A viewing catalog of stainless steel cutlery, kitchen tools, bar accessories and kitchenware. For enquiries and orders, reach us on WhatsApp or call — this site does not process orders directly.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>
+        <a href="tel:+919278172423">📞 9278172423</a><br>
+        <a href="https://api.whatsapp.com/send/?phone=919278172423&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">💬 WhatsApp Us</a><br>
+        <a href="mailto:Mrscutlery@gmail.com">✉️ Mrscutlery@gmail.com</a>
+      </p>
+    </div>
+    <div>
+      <h4>Catalog</h4>
+      <p>
+        <a href="#cutlery-sets">Cutlery Sets</a><br>
+        <a href="#flatware">Loose Flatware</a><br>
+        <a href="#kitchen-tools">Kitchen Tools</a><br>
+        <a href="#bar">Bar &amp; Cocktail</a><br>
+        <a href="#accessories">Kitchen Accessories</a><br>
+        <a href="#racks">Racks &amp; Stands</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 MRS Cutlery. All prices are MRP and subject to change — confirm on WhatsApp.</span>
+    <span>Catalog for viewing only — no online ordering.</span>
+  </div>
+</footer>
+
+<a class="float-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=919278172423&text=Hi%20MRS%20Cutlery%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products&type=phone_number&app_absent=0" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.24 0 4.35.87 5.94 2.46a8.23 8.23 0 0 1 2.42 5.85c0 4.55-3.71 8.26-8.27 8.26a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.4c0-4.56 3.71-8.31 8.17-8.31M8.53 6.99c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.72 4.2 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.46-.28-.24-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.39-.78-1.9-.2-.5-.41-.43-.56-.43z"/></svg>
+</a>
+
+<script>
+  // Active category chip highlighting on scroll
+  const chips = document.querySelectorAll('.cat-chip');
+  const blocks = document.querySelectorAll('.cat-block');
+  const setActive = () => {
+    let currentId = blocks[0].id;
+    const scrollPos = window.scrollY + 160;
+    blocks.forEach(b => { if (b.offsetTop <= scrollPos) currentId = b.id; });
+    chips.forEach(c => c.classList.toggle('active', c.getAttribute('href') === '#' + currentId));
+  };
+  window.addEventListener('scroll', setActive, {passive:true});
+  setActive();
+</script>
+
+</body>
+</html>
